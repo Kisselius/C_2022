@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main()
+{
+short a = 2;
+int b = 58;
+float c = 3.14;
+double d = 8.4681235;
+int sl = a + b;
+float vi = c - d;
+double um = d * a;
+c = ++c;
+printf ("Сумма первого и второго числа равна %d \n", sl);
+printf ("Разность третьего и четвертого числа равна %f \n", vi);
+printf ("Произведение первого и четвертого числа равно %lf \n", um);
+printf ("Увеличенное третье число на единицу равно %lf \n", c);
+}
