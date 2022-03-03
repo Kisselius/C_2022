@@ -1,27 +1,27 @@
-
 #include <iostream>
 
 using namespace std;
 
 int main()
 {
-    //int raz = 0;
-   // while (raz < 101){
-        //if (raz % 3 == 0){
-            //cout << raz << "\n";
-        //}
-        //raz++;
-    //}
-    
+    cout << "ПЕРВОЕ ЗАДАНИЕ. \n";
+    int raz = 0;
+    while (raz < 101){
+        if (raz % 3 == 0){
+            cout << "Число, делящееся на 3: " << raz << "\n";
+        }
+        raz++;
+    }
+    cout << "\n";
+    cout << "ВТОРОЕ ЗАДАНИЕ. \n";
     int dva = 1;
     int summa = 0;
     do {
         if (dva % 7 == 0){
             summa = summa + dva;
         }
-        dva + 4;
+        dva = dva + 4;
     } while (dva < 1001);
-    cout << summa;
+    cout << "Сумма всех чисел, делящихся на 7: " << summa;
     return 0;
 }
-//Почему-то во второй части программы (незакоменченной) не хочет суммировать значение. Все время выдает ноль при включении вывода значения в сам цикл.
