@@ -1,0 +1,28 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+    int A, B, C;
+    cout << "Введите два числа (второе больше первого): ";
+    cin >> A >> B;
+    int raznost = B - A;
+    ofstream file("Output");
+    for (A; A < B+1; A++){
+        file << A * 3 << "\n";
+    }
+    file.close();
+    
+    
+    cout << "Ваши числа: \n";
+    int cifra;
+    int nomer = 1;
+    ifstream file1("Output");
+    while(nomer <= raznost + 1){
+        file1 >> cifra;
+        cout << nomer++ << ". " << cifra << "\n";
+    }
+    file1.close();
+    return 0;
+}
