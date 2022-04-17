@@ -1,0 +1,25 @@
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+int main()
+{
+    char cifra[10][20] = {
+        "Ноль",
+        "Один",
+        "Два",
+        "Три",
+        "Четыре",
+        "Пять",
+        "Шесть",
+        "Семь",
+        "Восемь",
+        "Девять"
+    };
+    int indicator;
+    cout << "Какое число хотите лицезреть? \n";
+    cin >> indicator;
+    cout << cifra[indicator] << " <- вот так это пишется.";
+    return 0;
+}
