@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <iostream>
+using namespace std ;
+class Bucket
+{
+  int volume;
+  int used;
+  public:
+    Bucket(int v, int u) 
+    {
+      volume = v;
+      used = u;
+    }
+     int get_volume();
+     int get_used();
+   int fill(int litr);
+    int flush();
+};
+int Bucket::get_volume()
+{
+  return volume;
+}
+int Bucket::get_used() 
+{
+  return used;
+}
+int Bucket::flush()
+{
+  used = 0;
+  return 0;
+}
+int Bucket::fill(int obiem) 
+{
+  int free = volume - used;
+  if (obiem > free) 
+  {
+    used = volume;
+    int lishnee = obiem - free;
+    cout << lishnee << " единиц измерения разлилось, объема ведра не хватило"<<"\n";
+    return lishnee;
+  };
+  used = used + obiem;
+  return 0;
+}
+int main ()
+{
+  int obiem1;
+  Bucket vedro(10, 0);
+  cout << "Ведро помещает в себя " << vedro.get_volume() << "единиц измерения\n";
+  cout << "Сейчас там " << vedro.get_used() << "\n";
+
+  cout << "Сколько добавить? ";
+  cin >> obiem1;
+  vedro.fill(obiem1);
+  cout << "Плеснули в ведро " << vedro.get_used() << " единиц(-а/ы) измерения\n";
+  cout << "Выливаем всё из ведра, это все лишнее" << "\n";
+  vedro.flush();
+  cout << "В емкости снова " << vedro.get_used() << " единиц(-а/ы измерения\n";
+  return 0;
+  }
