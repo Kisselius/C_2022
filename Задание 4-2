@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	char text[50];
+	cout << "Введите инглиш лангуаге текст (не больше 50 символов): ";
+	cin.getline(text, sizeof(text));
+	for (char *simvol = text; *simvol; simvol++)
+	{
+		(*simvol)++;
+	}
+	cout <<  "Вот ваша белиберда: " << text;
+	return 0;
+}
