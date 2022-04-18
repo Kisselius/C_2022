@@ -1,0 +1,27 @@
+#include <iostream>
+#include <stdlib.h>
+using namespace std;
+double SquaredSum(double a, double b);
+int sort(const void * a, const void * b)
+{
+  return ( *(int*)b - *(int*)a );
+}
+
+int main(void)
+{
+    double a, b;
+	cout << "Введите два дробных числа: ";
+	cin >> a;
+	cin >> b;
+	cout << "Ваш квадрат суммы: " << (a+b)*(a+b) << "\n \n";
+    	int massiv[10];
+	cout << "Введите 10 чисел: ";
+	for (int p=0; p<10; p++){
+	    cin >> massiv[p];}
+	
+qsort(massiv, 10, sizeof(int), sort);
+cout << "Отсортированные числа: ";
+  for(int i=0; i<10; i++)
+	cout << massiv[i] <<" ";
+  cout <<"\n";
+	}
