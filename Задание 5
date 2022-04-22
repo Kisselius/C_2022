@@ -1,27 +1,40 @@
 #include <iostream>
-#include <stdlib.h>
+#include <algorithm>
 using namespace std;
 double SquaredSum(double a, double b);
-int sort(const void * a, const void * b)
-{
-  return ( *(int*)b - *(int*)a );
-}
+void Sortirovka(int massiv[]);
 
-int main(void)
+int main()
 {
     double a, b;
-	cout << "Введите два дробных числа: ";
-	cin >> a;
-	cin >> b;
-	cout << "Ваш квадрат суммы: " << (a+b)*(a+b) << "\n \n";
-    	int massiv[10];
-	cout << "Введите 10 чисел: ";
-	for (int p=0; p<10; p++){
+    cout << "Введите два дробных числа: ";
+    cin >> a;
+    cin >> b;
+    int massiv[10];
+    cout << "А теперь введите 10 целых чисел: ";
+    for (int p=0; p<10; p++){
 	    cin >> massiv[p];}
-	
-qsort(massiv, 10, sizeof(int), sort);
-cout << "Отсортированные числа: ";
-  for(int i=0; i<10; i++)
-	cout << massiv[i] <<" ";
-  cout <<"\n";
-	}
+   SquaredSum(a, b);
+   Sortirovka(massiv);
+   return 0;
+}
+
+//Первая функция
+double SquaredSum(double a, double b) {
+    cout << "Квадрат суммы дробных чисел: " << (a+b)*(a+b) << "\n";
+    return 0;
+}
+
+//Вторая функция
+void Sortirovka(int massiv[]) {
+    sort(massiv, massiv + 10);
+    cout << "Вот ваш обратный порядок: ";
+    for (int i=9; i>=0; i--){
+    cout << massiv[i];
+    if (i != 0) {
+        cout << ", ";
+    } else {
+        cout << ".";
+    }
+    }
+}
