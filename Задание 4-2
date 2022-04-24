@@ -1,14 +1,29 @@
 #include <iostream>
+#include <cstring>
+
 using namespace std;
+
 int main()
 {
-	char text[50];
-	cout << "Введите инглиш лангуаге текст (не больше 50 символов): ";
-	cin.getline(text, sizeof(text));
-	for (char *simvol = text; *simvol; simvol++)
-	{
-		(*simvol)++;
-	}
-	cout <<  "Вот ваша белиберда: " << text;
-	return 0;
+    int b = 0;
+    char a[] = "abcdefghijklmnopqrstuvwxyz";
+    cout << a[7];
+    char text[20];
+    cout << "Введите текст на английском для шифрования (не больше 20 символов): ";
+    cin >> text;
+    int razmer = strlen(text);
+    for (int i=0; i<razmer;){
+        for (int m=0; m!=1;){
+            if (text[i] != a[b]){
+                b++;
+            } else {
+                text[i] = a[b+1];
+                m = 1;
+                i++;
+                b = 0;
+        }
+    }
+    }
+    cout << "Шифрованный текст: " << text;
+    return 0;
 }
