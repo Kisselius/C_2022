@@ -1,36 +1,39 @@
 #include <iostream>
-using namespace std;
 
+
+using namespace std;
 class Bucket{
     public:
-    int volume, used, vlivaem, v;
+    int volume, used, v;
     
-    int fill(){
-        if ((volume - used) < vlivaem) {
-            cout << "Ведро полное! \nУ тебя осталось " << vlivaem - (volume - used) << " литров \n";
-            flush();
+    ~Bucket(){cout << "Ведро пустое вновь.";};
+    Bucket(int a, int b) {
+        volume = a;
+        used = b;
+    };
+    
+    int fill(int v){
+        if (v < (volume - used)){
+            used = used + v;
         } else {
-            cout << "Ведро заполнено на " << used + vlivaem << " литров \n";
+            used = (used + v) - volume;
         }
-        return used;
-    }
+        return volume;
+    };
     
-    int flush() {return 3;}
-    
-    
-    ~Bucket(){cout << "Вылили лишнюю воду \nВедро вновь заполнено на треть";};
-    Bucket(int v = 0) {
-        volume = 12;
-        used = 3;
-        vlivaem = v;
+    int flush(){
+        return used = 0;
     };
 };
 
-int main() {
-    int v;
-    cout << "Сколько литров хотите налить? \n";
-    cin >> v;
-    Bucket ODIN(v);
-    cout << ODIN.fill();
-    return 0;
+int main(){
+    Bucket test_01(12, 3);
+    cout << "1) " << test_01.volume << ", " << test_01.used << "\n";
+
+    int rest = test_01.fill(14);
+    cout << "2) " << test_01.used << ", " << rest << "\n";
+    
+    test_01.flush();
+    rest = test_01.fill(8);
+    cout << "3) " << test_01.used << ", " << rest << "\n";
 }
