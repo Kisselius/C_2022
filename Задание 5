@@ -1,5 +1,4 @@
 #include <iostream>
-#include <algorithm>
 using namespace std;
 double SquaredSum(double a, double b);
 void Sortirovka(int massiv[]);
@@ -27,14 +26,21 @@ double SquaredSum(double a, double b) {
 
 //Вторая функция
 void Sortirovka(int massiv[]) {
-    sort(massiv, massiv + 10);
-    cout << "Вот ваш обратный порядок: ";
-    for (int i=9; i>=0; i--){
-    cout << massiv[i];
-    if (i != 0) {
-        cout << ", ";
-    } else {
-        cout << ".";
+    int odin = 0;
+    int dva = 0;
+    for (int i = 1; i < 10;){
+        if (massiv[i] < massiv [i-1]) {
+            odin = massiv[i-1];
+            dva = massiv[i];
+            massiv[i-1] = dva;
+            massiv[i] = odin;
+            i = 1;
+        } else {
+            i++;
+        }
     }
+    cout << "Вот ваш правильный порядок чисел:";
+    for (int p = 0; p < 10; p++){
+        cout << massiv[p] << " ";
     }
 }
