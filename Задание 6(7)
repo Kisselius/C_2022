@@ -15,10 +15,12 @@ class Bucket{
     int fill(int v){
         if (v < (volume - used)){
             used = used + v;
+            return v = 0;
         } else {
-            used = (used + v) - volume;
+            int h = (used + v) - volume;
+            used = volume;
+            return v = h;
         }
-        return volume;
     };
     
     int flush(){
